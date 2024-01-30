@@ -2,12 +2,49 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome Customer</title>
+<link rel="stylesheet" href="/css/tablestyle.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Customer Home</h1>
-<a href = "pay">SUBSCRIBE</a>
-<br>
-<a href="logout">LOG OUT</a>
+	<h1>Customer Home</h1>
+
+	<div th:unless="${ispremium}"  class="non-premium">
+		<a href="pay">SUBSCRIBE</a> 
+		<br> 
+		<a href="logout">LOG OUT</a>
+	</div>
+	
+	
+	<div th:if="${ispremium}" class="premium">
+		<table border>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Artist</th>
+					<th>Genre</th>
+					<th>Play</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="song:${songs}">
+					<td th:text="${song.name}"></td>
+					<td th:text="${song.artist}"></td>
+					<td th:text="${song.genre}"></td>
+					
+					<td>
+					<audio controls="controls">
+							<source th:src="${song.link}">
+
+					</audio>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
 </body>
 </html>

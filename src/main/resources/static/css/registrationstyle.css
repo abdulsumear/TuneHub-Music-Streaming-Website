@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
- <style>
-        body {
+body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -21,35 +15,35 @@
             color: #3498db;
             font-size: 2em;
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: slideIn 1s ease-in-out forwards;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         form {
-            width: 300px;
+            width: 400px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         label {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #333;
         }
 
-        input, checkbox {
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        select {
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
@@ -63,28 +57,8 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #2980b9;
         }
-    </style>
-</head>
-<body>
-    <h1>Create Playlist With Your Favourite Songs</h1>
-	<form action="addplaylist" method="post">
-		<label>PlayList Name: </label> <input type="text" name="name" /> <br>
-
-		<div th:each="song:${song}">
-		<span>
-			<input type="checkbox" th:name="songs" th:value="${song.id}" /> 
-			<label th:text="${song.name}"></label>
-			</span>
-		</div>
-		<button type="submit" >addPlayList</button>
-
-	</form>
-
-</body>
-</html>

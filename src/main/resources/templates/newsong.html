@@ -3,8 +3,76 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        form {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #3498db;
+            font-size: 2em;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; /* Make the input take the full width */
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
+<h1>Add a New Song </h1>
 <form action="addsong" method="post">
 <label>Song Name : </label>
 <input type="text" name="name"/>
@@ -18,7 +86,7 @@
 <label> Song Link : </label>
 <input type="text" name="link"/>
 <br>
-<input type="submit" value="Add Song"/>
+<button type="submit" >Add Song</button>
 </form>
 </body>
 </html>
